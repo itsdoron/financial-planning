@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Content Security Policy for basic XSS protection -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;">
+    
+    <title>דורון פרלשטיין | תכנון פיננסי אסטרטגי</title>
+    
+    <!-- Google Fonts: Heebo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Heebo', 'sans-serif'] },
+                    colors: { primary: '#0ea5e9', secondary: '#f8fafc', dark: '#0f172a' }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: #0f172a;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.1);
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header / Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-72 h-72 bg-blue-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center fade-in-up">
+            <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 text-dark">
+                דורון פרלשטיין <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">תכנון פיננסי אסטרטגי</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 font-light">
+                החלטות מבוססות היגיון. תוצאות מבוססות נתונים. בניית הון לטווח ארוך.
+            </p>
+            <a href="#contact" class="inline-block bg-primary hover:bg-blue-600 text-white font-semibold py-4 px-10 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1">
+                התחל בתכנון עכשיו
+            </a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white/40 backdrop-blur-sm">
+        <div class="container mx-auto px-6 max-w-5xl fade-in-up">
+            <h2 class="text-3xl font-bold mb-8 text-center">הגישה שלי</h2>
+            <div class="glass rounded-3xl p-10 lg:p-14 text-lg text-slate-700 leading-relaxed space-y-6">
+                <p>
+                    תכנון פיננסי אינו מבוסס על תחושות בטן או מזל. הוא דורש הבנה אנליטית עמוקה, ניתוח נתונים מדויק, ואסטרטגיה ברורה.
+                </p>
+                <p>
+                    כמתכנן פיננסי ופנסיוני, ההתמקדות שלי היא בייעוץ אובייקטיבי המגובה במספרים. אני מספק ניתוח טכני של תזרימי מזומנים, אופטימיזציה של תיקי השקעות ופנסיה, ובניית אסטרטגיה נטולת פשרות להשגת היעדים הכלכליים שלך. התהליך מתבצע בשקיפות מלאה, בשפה ברורה, ובמיקוד מוחלט בשורה התחתונה.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 fade-in-up">
+            <h2 class="text-3xl font-bold mb-12 text-center">שירותים מרכזיים</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Card 1 -->
+                <div class="glass p-8 rounded-2xl hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">ניתוח תיק (Portfolio Analysis)</h3>
+                    <p class="text-slate-600">בחינה מדוקדקת של הקצאת הנכסים שלך, מדידת סיכונים, ואופטימיזציה להגדלת התשואה מותאמת הסיכון בהתבסס על מודלים מתקדמים.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass p-8 rounded-2xl hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">ליווי אישי (Personal Mentorship)</h3>
+                    <p class="text-slate-600">עבודה משותפת וצמודה לבניית תקציב, ניהול תזרים מזומנים והקניית הרגלים פיננסיים אפקטיביים ליצירת צמיחה עקבית.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass p-8 rounded-2xl hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">תכנון פנסיוני אסטרטגי</h3>
+                    <p class="text-slate-600">מקסום הזכויות הפנסיוניות, תכנון מס יעיל לפרישה, ובחירת מסלולי השקעה חכמים כדי להבטיח עתיד כלכלי איתן.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Why Section -->
+    <section class="py-20 bg-dark text-white">
+        <div class="container mx-auto px-6 max-w-4xl text-center fade-in-up">
+            <h2 class="text-3xl font-bold mb-8">למה תכנון פיננסי הכרחי?</h2>
+            <p class="text-lg text-slate-300 mb-6 font-light">
+                היעדר תכנון משמעותו אובדן הון. דמי ניהול עודפים, אינפלציה שמכרסמת בכוח הקנייה, ותכנון מס לקוי גובים מחיר כבד לאורך זמן.
+            </p>
+            <ul class="text-right space-y-4 max-w-2xl mx-auto mt-10">
+                <li class="flex items-start">
+                    <span class="text-primary ml-3">✓</span> גידור סיכונים והגנה על הנכסים הקיימים.
+                </li>
+                <li class="flex items-start">
+                    <span class="text-primary ml-3">✓</span> אופטימיזציה של מס ודמי ניהול (השפעה דרמטית בטווח הארוך).
+                </li>
+                <li class="flex items-start">
+                    <span class="text-primary ml-3">✓</span> ניצול נכון של כוח הריבית דריבית لبניית הון.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Compound Interest Calculator -->
+    <section class="py-24">
+        <div class="container mx-auto px-6 fade-in-up">
+            <div class="glass max-w-5xl mx-auto rounded-3xl p-8 lg:p-12 shadow-2xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-4">מחשבון ריבית דריבית מתקדם</h2>
+                    <p class="text-slate-600">גלה את ההשפעה האמיתית של דמי הניהול על ההון העתידי שלך.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <!-- Inputs -->
+                    <div class="w-full lg:w-1/3 space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">הפקדה ראשונית (₪)</label>
+                            <input type="number" id="calc-initial" value="100000" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary bg-white/50 text-left" dir="ltr" min="0">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">הפקדה חודשית (₪)</label>
+                            <input type="number" id="calc-monthly" value="2000" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary bg-white/50 text-left" dir="ltr" min="0">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">תשואה שנתית צפויה (%)</label>
+                            <input type="number" id="calc-return" value="7" step="0.1" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary bg-white/50 text-left" dir="ltr">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">דמי ניהול שנתיים (%)</label>
+                            <input type="number" id="calc-fees" value="0.8" step="0.01" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary bg-white/50 text-left" dir="ltr" min="0">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">תקופה (שנים)</label>
+                            <input type="number" id="calc-years" value="20" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary bg-white/50 text-left" dir="ltr" min="1" max="60">
+                        </div>
+                        <button onclick="calculateCompoundInterest()" class="w-full bg-slate-800 text-white font-bold py-3 rounded-lg hover:bg-slate-700 transition duration-300 mt-4">
+                            חשב תוצאה
+                        </button>
+                    </div>
+
+                    <!-- Chart & Results -->
+                    <div class="w-full lg:w-2/3 flex flex-col justify-between">
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-primary/10 p-4 rounded-xl border border-primary/20">
+                                <p class="text-sm text-slate-600 font-semibold">שווי סופי (אחרי דמי ניהול)</p>
+                                <p id="result-total" class="text-2xl font-bold text-primary" dir="ltr">₪0</p>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                <p class="text-sm text-slate-600 font-semibold">אובדן לדמי ניהול (מצטבר)</p>
+                                <p id="result-fees" class="text-2xl font-bold text-red-500" dir="ltr">₪0</p>
+                            </div>
+                        </div>
+                        <div class="relative h-64 w-full">
+                            <canvas id="growthChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-24 mb-10">
+        <div class="container mx-auto px-6 text-center fade-in-up">
+            <h2 class="text-4xl font-extrabold mb-6">מוכנים לקחת שליטה על העתיד הכלכלי?</h2>
+            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+                ללא סיסמאות, ללא הבטחות שווא. עבודה יסודית, מקצועית וממוקדת מטרה.
+            </p>
+            <a href="https://wa.me/972587805396" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe57] text-white font-bold py-4 px-12 rounded-full transition-all duration-300 shadow-xl transform hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                צור קשר בוואטצאפ
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-slate-200 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 דורון פרלשטיין - תכנון פיננסי אסטרטגי. כל הזכויות שמורות.</p>
+    </footer>
+
+    <!-- Logic & Animations -->
+    <script>
+        // --- Scroll Animations (Intersection Observer) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach((elem) => {
+            observer.observe(elem);
+        });
+
+        // --- Compound Interest Calculator Logic ---
+        let growthChartInstance = null;
+
+        function sanitizeInput(value) {
+            const num = parseFloat(value);
+            return isNaN(num) ? 0 : num;
+        }
+
+        function formatCurrency(num) {
+            return '₪' + num.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        }
+
+        function calculateCompoundInterest() {
+            // Retrieve and sanitize inputs
+            const initial = sanitizeInput(document.getElementById('calc-initial').value);
+            const monthly = sanitizeInput(document.getElementById('calc-monthly').value);
+            const returnRate = sanitizeInput(document.getElementById('calc-return').value) / 100;
+            const feeRate = sanitizeInput(document.getElementById('calc-fees').value) / 100;
+            const years = parseInt(sanitizeInput(document.getElementById('calc-years').value));
+
+            if (years <= 0 || years > 100) return;
+
+            let balanceGross = initial; // Balance without fees
+            let balanceNet = initial;   // Balance with fees
+            let totalInvested = initial;
+
+            const labels = [0];
+            const netData = [initial];
+            const grossData = [initial];
+
+            for (let year = 1; year <= years; year++) {
+                // Approximate calculation: Add annual deposit, then apply growth and fees
+                const annualDeposit = monthly * 12;
+                totalInvested += annualDeposit;
+
+                // Gross Growth
+                balanceGross = (balanceGross + annualDeposit) * (1 + returnRate);
+                
+                // Net Growth (Return minus Fees)
+                let yearNetGrowth = (balanceNet + annualDeposit) * returnRate;
+                let yearFees = (balanceNet + annualDeposit + yearNetGrowth) * feeRate;
+                balanceNet = (balanceNet + annualDeposit) + yearNetGrowth - yearFees;
+
+                labels.push(year);
+                netData.push(balanceNet);
+                grossData.push(balanceGross);
+            }
+
+            const totalFeesLost = balanceGross - balanceNet;
+
+            // Update UI
+            document.getElementById('result-total').innerText = formatCurrency(balanceNet);
+            document.getElementById('result-fees').innerText = formatCurrency(totalFeesLost);
+
+            updateChart(labels, netData, grossData);
+        }
+
+        function updateChart(labels, netData, grossData) {
+            const ctx = document.getElementById('growthChart').getContext('2d');
+
+            if (growthChartInstance) {
+                growthChartInstance.destroy();
+            }
+
+            growthChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'שווי (אחרי דמי ניהול)',
+                            data: netData,
+                            borderColor: '#0ea5e9',
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'פוטנציאל ללא דמי ניהול',
+                            data: grossData,
+                            borderColor: '#cbd5e1',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            fill: false,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { font: { family: 'Heebo' } }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + formatCurrency(context.raw);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) { return formatCurrency(value); }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initial calculation on load
+        window.addEventListener('DOMContentLoaded', calculateCompoundInterest);
+    </script>
+</body>
+</html>

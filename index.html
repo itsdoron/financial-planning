@@ -36,45 +36,53 @@
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <style>
-        body {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            color: #0f172a;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.1);
-        }
-        .glass-hover {
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background 0.4s ease;
-        }
-        .glass-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px -5px rgba(14, 165, 233, 0.2);
-            background: rgba(255, 255, 255, 0.85);
-        }
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* עיצוב כפתורים ריספונסיבי */
-        input:focus, textarea:focus {
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3);
-            border-color: #0ea5e9;
-        }
-    </style>
-</head>
+   <style>
+    body {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        color: #0f172a;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.1);
+    }
+    .glass-hover {
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background 0.4s ease;
+    }
+    .glass-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px -5px rgba(14, 165, 233, 0.2);
+        background: rgba(255, 255, 255, 0.85);
+    }
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+   /* התיקון שמונע מהטקסט להופיע בחוץ ומעצב את האקורדיון */
+    details > summary {
+        list-style: none;
+    }
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* עיצוב כפתורים ריספונסיבי */
+    input:focus, textarea:focus {
+        box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3);
+        border-color: #0ea5e9;
+    }
+</style>
+</head> 
 <body class="antialiased min-h-screen flex flex-col relative">
 
     <!-- רקע דינמי: אלמנטים צפים -->
@@ -202,6 +210,74 @@
 
     <footer class="py-8 border-t border-slate-200/50 text-center text-slate-500 text-sm mt-auto backdrop-blur-md bg-white/30">
         <p>&copy; 2026 דורון פרלשטיין - תכנון פיננסי .</p>
+        <section class="py-16 relative z-10">
+        <div class="container mx-auto px-6 max-w-4xl fade-in-up">
+            <h2 class="text-2xl font-bold mb-8 text-center text-slate-800">מידע משפטי וגילוי נאות</h2>
+            <div class="space-y-4">
+                
+                <!-- תנאי שימוש -->
+                <details class="glass p-5 rounded-2xl group cursor-pointer transition-all duration-300">
+                    <summary class="font-bold text-slate-800 outline-none list-none flex justify-between items-center">
+                        תקנון ותנאי שימוש
+                        <span class="text-primary transition-transform duration-300 group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="mt-4 text-sm text-slate-600 leading-relaxed border-t border-slate-200/50 pt-4">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>הגלישה והשימוש באתר כפופים להסכמה לתנאי שימוש אלו.</li>
+                            <li>התוכן המופיע באתר, לרבות טקסטים, כלים חישוביים ועיצוב, שייך לדורון פרלשטיין ואין לעשות בו שימוש מסחרי, להעתיק או לשכפל ללא אישור מראש.</li>
+                            <li>השירותים והמידע באתר ניתנים כמות שהם (As-Is). בעל האתר לא יישא באחריות לכל נזק ישיר או עקיף שייגרם כתוצאה משימוש באתר או הסתמכות על התוכן.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- מדיניות פרטיות -->
+                <details class="glass p-5 rounded-2xl group cursor-pointer transition-all duration-300">
+                    <summary class="font-bold text-slate-800 outline-none list-none flex justify-between items-center">
+                        מדיניות פרטיות
+                        <span class="text-primary transition-transform duration-300 group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="mt-4 text-sm text-slate-600 leading-relaxed border-t border-slate-200/50 pt-4">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>איסוף מידע:</strong> האתר אוסף אך ורק את הנתונים הנמסרים מרצון על ידי המשתמש במסגרת טופס יצירת הקשר (שם, טלפון, אימייל).</li>
+                            <li><strong>שימוש במידע:</strong> המידע נועד למטרת יצירת קשר ומענה לפנייתך בלבד. הנתונים אינם מועברים, נמכרים או מושכרים לצדדים שלישיים.</li>
+                            <li><strong>קובצי עוגיות (Cookies):</strong> האתר עושה שימוש בקובצי עוגיות טכניים ואנליטיים (כגון סטטיסטיקות שימוש אנונימיות) במטרה לשפר את תפקוד האתר. ניתן לחסום שימוש זה דרך הגדרות הדפדפן.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- גילוי נאות פיננסי -->
+                <details class="glass p-5 rounded-2xl group cursor-pointer transition-all duration-300">
+                    <summary class="font-bold text-slate-800 outline-none list-none flex justify-between items-center">
+                        גילוי נאות והבהרה משפטית (פיננסים)
+                        <span class="text-primary transition-transform duration-300 group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="mt-4 text-sm text-slate-600 leading-relaxed border-t border-slate-200/50 pt-4">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>התכנים המופיעים באתר זה, לרבות נתונים, מאמרים ומחשבונים (כדוגמת מחשבון הריבית דריבית), מוצגים <strong>למטרות הסברה, המחשה וחינוך פיננסי בלבד</strong>.</li>
+                            <li>המידע אינו מהווה תחליף לייעוץ השקעות, ייעוץ פנסיוני, ייעוץ מס או תכנון פיננסי המותאם לצרכיו ולנתוניו האישיים של הלקוח, ואין להסתמך עליו ככזה.</li>
+                            <li>הנתונים המופקים ממחשבון התשואה מבוססים על הנחות יסוד ממוצעות (כגון תשואה עתידית היפותטית) ואינם מהווים ערובה או הבטחה להשגת תשואה זהה בפועל. שוק ההון טומן בחובו סיכונים.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- הצהרת נגישות -->
+                <details class="glass p-5 rounded-2xl group cursor-pointer transition-all duration-300">
+                    <summary class="font-bold text-slate-800 outline-none list-none flex justify-between items-center">
+                        הצהרת נגישות
+                        <span class="text-primary transition-transform duration-300 group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="mt-4 text-sm text-slate-600 leading-relaxed border-t border-slate-200/50 pt-4">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>אנו רואים חשיבות עליונה בהנגשת האתר לאנשים עם מוגבלויות, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלויות ולתקן WCAG 2.1 ברמת AA.</li>
+                            <li><strong>אמצעי הנגישות באתר:</strong> תמיכה בניווט מקלדת (Tab), ניגודיות טקסט תקינה, היררכיית כותרות ברורה ותאימות לדפדפנים נפוצים ולקוראי מסך.</li>
+                            <li>אם נתקלת בבעיית נגישות או שנדרשת התאמה ספציפית, ניתן לפנות אליי ישירות דרך טופס יצירת הקשר באתר או באמצעות הוואטסאפ לצורך קבלת מענה וטיפול בבעיה.</li>
+                        </ul>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
     </footer>
 
     <!-- מנגנון הסכמת עוגיות (Cookie Consent) -->

@@ -81,10 +81,45 @@
         box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3);
         border-color: #0ea5e9;
     }
+
+    .profile-header {
+        display: flex;
+        justify-content: center;
+        padding: 40px 0;
+    }
+
+    .banner-wrapper {
+        width: 100%;
+        max-width: 420px; /* רוחב מאוזן */
+        height: auto;
+        /* יחס 4:5 הוא מלבן מעט יותר קצר מהקודם (פחות "ארוך") */
+        aspect-ratio: 4 / 5; 
+        padding: 8px; 
+        border-radius: 2rem; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* כאן השליטה על המיקוד: 
+           במקום top (0%), נשתמש ב-15%. 
+           זה יוריד את התמונה מעט למטה כדי שלא יראו יותר מדי מהתקרה/שמיים */
+        object-position: center 15%; 
+        border-radius: 1.8rem;
+    }
 </style>
 </head> 
 <body class="antialiased min-h-screen flex flex-col relative">
-
+<header class="profile-header container mx-auto">
+    <div class="banner-wrapper glass mx-auto">
+        <img src="image.png" alt="Profile" class="profile-img">
+    </div>
+</header>
     <!-- רקע דינמי: אלמנטים צפים -->
     <div class="fixed top-[10%] right-[10%] w-72 h-72 bg-primary/20 rounded-full filter blur-3xl opacity-60 animate-float pointer-events-none -z-10"></div>
     <div class="fixed bottom-[20%] left-[5%] w-96 h-96 bg-blue-400/20 rounded-full filter blur-3xl opacity-50 animate-float-delayed pointer-events-none -z-10"></div>

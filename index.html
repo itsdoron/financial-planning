@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- שדרוג אבטחה: CSP מהודק ומפורט יותר -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formspree.io; img-src 'self' data:;">
-    
+    <link rel="preload" as="image" href="image.png" fetchpriority="high">
     <title>דורון פרלשטיין | תכנון פיננסי אסטרטגי</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -34,7 +33,6 @@
         }
     </script>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
    <style>
     body {
@@ -130,7 +128,7 @@
 <body class="antialiased min-h-screen flex flex-col relative">
 <header class="profile-header container mx-auto">
     <div class="banner-wrapper glass mx-auto">
-        <img src="image.png" alt="Profile" class="profile-img">
+      <img src="image.png" alt="Profile" class="profile-img" width="400" height="500" fetchpriority="high" loading="eager">
     </div>
 </header>
     <!-- רקע דינמי: אלמנטים צפים -->
@@ -520,11 +518,11 @@
             input.addEventListener('input', calculateCompoundInterest);
         });
   </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-<script defer src="/_vercel/insights/script.js"></script>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 </body>
 </html>

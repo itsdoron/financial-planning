@@ -82,31 +82,32 @@
         border-color: #0ea5e9;
     }
 
-    .profile-header {
+  .profile-header {
         display: flex;
         justify-content: center;
-        /* צמצום המרווח העליון בנייד */
-        padding: 20px 0; 
-    }
-
-   .profile-header {
-        display: flex;
-        justify-content: center;
-        padding: 15px 0; /* צמצום נוסף של המרווח העליון */
+        padding: 15px 0;
     }
 
     .banner-wrapper {
         width: 100%;
         max-width: 320px; 
         height: auto;
-        /* בנייד: מלבן רחב יותר כדי לתפוס פחות גובה */
-        aspect-ratio: 3 / 2; 
+        aspect-ratio: 3 / 2; /* מלבן רחב בנייד */
         padding: 4px;
         border-radius: 1.2rem;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
+    }
+
+    .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* בנייד: הצמדה חזקה לחלק העליון של התמונה */
+        object-position: center top; 
+        border-radius: 1rem;
     }
 
     /* במחשב: מחזירים למראה הפורטרט המרשים */
@@ -116,29 +117,14 @@
         }
         .banner-wrapper {
             max-width: 400px;
-            aspect-ratio: 4 / 5; /* חוזר למלבן עומד */
+            aspect-ratio: 4 / 5; /* מלבן עומד במחשב */
             padding: 8px;
             border-radius: 2rem;
         }
-
-    .profile-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* מיקוד בראש ובכתפיים */
-        object-position: center 20%; 
-        border-radius: 1rem;
-    }
-
-    .profile-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* כאן השליטה על המיקוד: 
-           במקום top (0%), נשתמש ב-15%. 
-           זה יוריד את התמונה מעט למטה כדי שלא יראו יותר מדי מהתקרה/שמיים */
-        object-position: center 15%; 
-        border-radius: 1.8rem;
+        .profile-img {
+            /* במחשב: מיקוד מאוזן יותר (15%) כי יש יותר גובה */
+            object-position: center 15%; 
+        }
     }
 </style>
 </head> 

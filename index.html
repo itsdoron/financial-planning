@@ -85,21 +85,42 @@
     .profile-header {
         display: flex;
         justify-content: center;
-        padding: 40px 0;
+        /* צמצום המרווח העליון בנייד */
+        padding: 20px 0; 
     }
 
     .banner-wrapper {
         width: 100%;
-        max-width: 420px; /* רוחב מאוזן */
+        /* גודל ברירת מחדל לנייד - קטן יותר כדי שיראו את תחילת הטקסט */
+        max-width: 280px; 
         height: auto;
-        /* יחס 4:5 הוא מלבן מעט יותר קצר מהקודם (פחות "ארוך") */
-        aspect-ratio: 4 / 5; 
-        padding: 8px; 
-        border-radius: 2rem; 
+        aspect-ratio: 4 / 5;
+        padding: 6px;
+        border-radius: 1.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
+    }
+
+    /* כשהמסך גדול מ-768 פיקסלים (מחשב/טאבלט) - התמונה תגדל חזרה */
+    @media (min-width: 768px) {
+        .profile-header {
+            padding: 40px 0;
+        }
+        .banner-wrapper {
+            max-width: 400px;
+            padding: 8px;
+            border-radius: 2rem;
+        }
+    }
+
+    .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 15%;
+        border-radius: 1.3rem;
     }
 
     .profile-img {

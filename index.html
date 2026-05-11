@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+    <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- שדרוג אבטחה: CSP מהודק ומפורט יותר -->
@@ -85,19 +86,25 @@
         justify-content: center;
         padding: 15px 0;
     }
+.banner-wrapper {
+    width: 260px; /* הגדרת רוחב ספציפי לנייד */
+    aspect-ratio: 1 / 1; /* שומר על ריבוע מושלם */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4px;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
+/* במחשב זה ישתנה לפורמט המקורי */
+@media (min-width: 768px) {
     .banner-wrapper {
-        width: 100%;
-        /* הקטנה מ-320 ל-260 כדי שלא יתפוס חצי מסך בנייד */
-        max-width: 260px; 
-        height: auto;
-        aspect-ratio: 1 / 1; /* ריבוע בנייד חוסך מקום ומרכז את הפנים */
-        padding: 4px;
-        border-radius: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+        width: 400px;
+        aspect-ratio: 4 / 5;
+    }
     }
 
     .profile-img {
@@ -511,7 +518,9 @@
         }
         
         // אתחול המחשבון בטעינה
-        window.addEventListener('load', calculateCompoundInterest);
+    window.addEventListener('load', () => {
+    setTimeout(calculateCompoundInterest, 100);
+});
         
         // הוספת האזנה לשדות המחשבון לעדכון אוטומטי בזמן הקלדה (שיפור UX)
         document.querySelectorAll('#calc-initial, #calc-monthly, #calc-return, #calc-fees, #calc-years').forEach(input => {
@@ -522,7 +531,6 @@
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
-    <script src="https://cdn.tailwindcss.com" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 </body>
 </html>

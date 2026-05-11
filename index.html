@@ -82,7 +82,7 @@
         border-color: #0ea5e9;
     }
 
-  .profile-header {
+ .profile-header {
         display: flex;
         justify-content: center;
         padding: 15px 0;
@@ -90,9 +90,10 @@
 
     .banner-wrapper {
         width: 100%;
-        max-width: 320px; 
+        /* הקטנה מ-320 ל-260 כדי שלא יתפוס חצי מסך בנייד */
+        max-width: 260px; 
         height: auto;
-        aspect-ratio: 3 / 2; /* מלבן רחב בנייד */
+        aspect-ratio: 1 / 1; /* ריבוע בנייד חוסך מקום ומרכז את הפנים */
         padding: 4px;
         border-radius: 1.2rem;
         display: flex;
@@ -105,27 +106,25 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* בנייד: הצמדה חזקה לחלק העליון של התמונה */
-        object-position: center top; 
+        /* שינוי מ-top ל-20% כדי לראות פנים ולא רק מצח */
+        object-position: center 20%; 
         border-radius: 1rem;
     }
 
-    /* במחשב: מחזירים למראה הפורטרט המרשים */
+    /* במחשב: מחזירים למראה הפורטרט המקורי ללא שינוי */
     @media (min-width: 768px) {
         .profile-header {
             padding: 40px 0;
         }
         .banner-wrapper {
             max-width: 400px;
-            aspect-ratio: 4 / 5; /* מלבן עומד במחשב */
+            aspect-ratio: 4 / 5;
             padding: 8px;
             border-radius: 2rem;
         }
         .profile-img {
-            /* במחשב: מיקוד מאוזן יותר (15%) כי יש יותר גובה */
             object-position: center 15%; 
         }
-    }
 </style>
 </head> 
 <body class="antialiased min-h-screen flex flex-col relative">
